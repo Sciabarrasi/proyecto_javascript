@@ -1,5 +1,3 @@
-/*validarEdad();*/
-
 ejecutarSimulador();
 
 function ejecutarSimulador(){
