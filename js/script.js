@@ -1,51 +1,99 @@
-ejecutarSimulador();
+//creando array de objetos
+let guitarras = [];
 
-function ejecutarSimulador(){
+guitarras.push(new Guitarra("Nueva", "Gibson","Les Paul", 30000));
+guitarras.push(new Guitarra("Usada", "Fender","Telecaster", 25000));
+guitarras.push(new Guitarra("Nueva", "Fender", "Stratocaster", 35000));
+guitarras.push(new Guitarra("Muy Usada", "Cort", "C-300", 30000));
 
-    validarEdad();
-    comenzarCompra();
-    precioGuitarra();
-    debitar();
-    compraFinalizada();
+tomarEleccion();
+
+function tomarEleccion(){
+    const eleccion = prompt("Ingrese uno de los siguientes números para comenzar.\n" +
+    "1) Mostrar la guitarra que busca.\n" +
+    "2) Buscar una guitarra por su nombre.\n" +
+    "3) Eliminar todas las guitarras de una marca en especifico\n" +
+    "4) Agregar una guitarra.\n" +
+    "5) Modificar una guitarra");
+    ejecutarEleccion(eleccion);
 }
 
-function validarEdad(){
-    let edadUsuario = prompt("Ingrese su edad para poder continuar");
-    while(edadUsuario < 18){
-        edadUsuario = prompt("Tu edad debe ser mayor o igual a 18, vuelve a ingresarla para poder continuar.");
-    }
-}
 
-function comenzarCompra(){
-    alert("Bienvenido a la casa de guitarras. Actualmente tenemos en stock las siguientes guitarras eléctricas: Gibson Les Paul, Fender Stratocaster, LTD GH-200, Cort X-300. Por favor, escribe el nombre de la guitarra que comprarás respetando sus mayúsculas.");
-    let compraGuitarra = prompt("Ingrese la marca de la guitarra que comprará.");
-    switch(compraGuitarra){
-        case "Gibson Les Paul":
-            alert("Gibson Les Paul vale $20000"); break;
-        case "Fender Stratocaster":
-            alert("Fender Statocaster vale $25000"); break;
-        case "LTD GH-200":
-            alert("LTD GH-200 vale $30000"); break;
-        case "Cort X-300":
-            alert("Cort X-300 vale $35000"); break;
+function ejecutarEleccion(eleccion){
+    switch(eleccion){
+        case "1":
+            guitarraBuscada(); break;
+        case "2":
+            buscarGuitarra(); break;
+        case "3":
+            eliminarTodasLasGuitarrasMarca(); break;
+        case "4":
+            agregarGuitarra(); break;
+        case "5":
+            modGuitarra(); break;
         default:
-            alert("Esa guitarra actualmente no está en nuestro stock, recarga la página para comenzar denuevo.");break;
+            alert("Opción inexistente");
     }
 }
 
-function precioGuitarra(){
-    let tieneDinero = prompt("¿Tiene los fondos necesarios para comprar ésta guitarra?");
-    if (tieneDinero == 'si'){
-        alert("En el siguiente bloque se le pedirá su tarjeta de débito para verificar si tiene saldo suficiente.");
-    }else{
-        alert("Fondos insuficientes, recargue la página y comience denuevo.");
+
+// mostrar la guitarra que busca el usuario
+function guitarraBuscada(){
+    const inputGuitarra = prompt("Ingrese la marca de guitarras que busca");
+    ///de aca hasta q termina la func no tengo idea que hice, pero lo hice.
+    const guitarraEncontrada = guitarras.filter((guitarra) => guitarra.marca === inputGuitarra);
+
+    guitarraEncontrada.forEach((guitarra) => console.log(guitarra.marca));
+}
+
+// buscar una guitarra por nombre
+function buscarGuitarra(){
+    const nombreGuitarra = prompt("Ingrese el nombre de la guitarra que busca.");
+    const guitarraEncontrada = guitarras.find((guitarra) => guitarra.marca === nombreGuitarra);
+
+    if (guitarraEncontrada){
+        console.log(guitarraEncontrada.marca);
     }
 }
 
-function debitar(){
-    let nroTarjeta = prompt("Ingrese su tarjeta de débito para poder debitarle el valor de la guitarra que comprará");
+// eliminar una guitarra por nombre
+function eliminarTodasLasGuitarrasMarca(){
+    const borrarGuitarra = prompt("Ingrese una marca de guitarra");
+
+    guitarras = guitarras.filter((guitarra) => guitarra.marca != borrarGuitarra);
+    console.log(guitarras);
 }
 
-function compraFinalizada(){
-    alert("Débito realizado con éxito! Recibirá su pedido en los próximos 5 días hábiles, gracias por su compra!");
+// agregar una guitarra
+function agregarGuitarra(){
+    const guitarraEstado = prompt("Ingrese el estado que quiere que tenga la guitarra nueva");
+    const guitarraMarca = prompt("Ingrese la marca que quiere que tenga la guitarra nueva");
+    const guitarraModelo = prompt("Ingrese el modelo que quiere que tenga la guitarra nueva");
+    const guitarraPrecio = prompt("Ingrese el precio que quiere que tenga la guitarra nueva");
+
+    guitarras.push(new Guitarra(guitarraEstado, guitarraMarca, guitarraModelo, guitarraPrecio));
+    console.log(guitarras);
+}
+
+// modificar una guitarra
+function modGuitarra(){
+    const modeloModificada = prompt("Ingrese el modelo de guitarra que quiere modificar");
+    const guitarraModded = guitarras.find((guitarra) => guitarra.modelo === modeloModificada);
+    const elegirAtributo = prompt("Ingrese que quiere modificar de la guitarra. Puede elegir estado, marca o precio");
+
+    switch(elegirAtributo){
+        case 'estado':
+            const valorEstado = prompt("¿Como quiere cambiar el estado? Puede elegir nuevo, usado o a reparar");
+            guitarraModded.estado = valorEstado;
+            break;
+        case 'marca':
+            const valorMarca = prompt("¿A que marca quiere cambiar? Tenemos en stock: Gibson, Fender, Cort, SLP y ESP");
+            guitarraModded.marca = valorMarca;
+            break;
+        case 'precio':
+            const valorPrecio = prompt("¿A que precio quiere modificar?");
+            guitarraModded.precio = Number(valorPrecio);
+            break;
+    }
+    console.log(guitarras);
 }
