@@ -64,32 +64,38 @@ function actualizarElementosCarrito(){
     });
 }
 
-function nuevaFila(){
+function nuevaFila(item){
     //creo la fila
     const fila = document.createElement('tr');
     let td = document.createElement('td');
     //obtengo la posicion del item del carrito
     const posCarrito = carrito.indexOf(Guitarra);
+    console.log(item);
 
     td.classList.add('font-white');
-    td.textContent = Guitarra.estado;
+    td.textContent = item.estado;
     fila.appendChild(td);
 
     td.classList.add('font-white');
-    td.textContent = Guitarra.marca;
+    td = document.createElement('td');
+    td.textContent = item.marca;
     fila.appendChild(td);
 
     td.classList.add('font-white');
-    td.textContent = Guitarra.modelo;
+    td = document.createElement('td');
+    td.textContent = item.modelo;
     fila.appendChild(td);
 
     td.classList.add('font-white');
-    td.textContent = Guitarra.cantidad;
+    td = document.createElement('td');
+    td.textContent = item.cantidad;
     fila.appendChild(td);
 
     td.classList.add('font-white');
-    td.textContent = Guitarra.precio;
+    td = document.createElement('td');
+    td.textContent = item.precio;
     fila.appendChild(td);
+
 
     fila.appendChild(td);
 
