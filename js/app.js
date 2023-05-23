@@ -1,3 +1,4 @@
+/*
 const carrito = [new Guitarra('Nuevo','Fender','Stratocaster',20000,5),new Guitarra('Usado','Gibson','Les Paul',25000,2),new Guitarra('Rota','Cort','C-300',18000,1)];
 
 
@@ -47,3 +48,4 @@ function mostrarTablaV2() {
 
 
   mostrarTablaV2()
+  */
