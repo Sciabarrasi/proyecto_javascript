@@ -5,13 +5,15 @@ class Guitarra{
     marca;
     modelo;
     precio;
+    cantidad;
 
     //constructor
-    constructor(estado, marca, modelo, precio){
+    constructor(estado, marca, modelo, precio, cantidad){
         this.estado = estado;
         this.marca = marca;
         this.modelo = modelo;
         this.precio = precio;
+        this.cantidad = cantidad;
     }
 
     //comportamientos/métodos

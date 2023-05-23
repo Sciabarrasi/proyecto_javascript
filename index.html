@@ -4,14 +4,59 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Carrito de compras de guitarras</title>
+    <link rel="icon" href="./favicon.ico">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
+    <div class="container m-3 row">
+        <div class="container m-1 col">
+            <form id="agregar">
+                <label for="productos">Elija un producto</label>
 
+                <select id="productos" class="form-control prod-selector">
+                </select>
+                <br>
+                <button id="agregar" class="btn btn-primary">Agregar</button>
+            </form>
+        </div>
+        <div class="container m-1">
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Cantidad</th>
+                        <th>Precio Unitario</th>
+                        <th>Operacion</th>
+                    </tr>
+                </thead>
+                <tbody id="items">
+                </tbody>
+                <tfoot class="thead-dark">
+                    <tr>
+                        <th>Total: </th>
+                        <th></th>
+                        <th id="total"></th>
+                        <th></th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <div class="container m-1">
+            <button id="ordenar" class="btn btn-primary">
+                Ordenar
+            </button>
+            <button id="vaciar" class="btn btn-primary">
+                Vaciar
+            </button>
+        </div>
+    </div>
 
 
 
     <script src="./js/Guitarra.js"></script>
-    <script src="./js/script.js"></script>
+    <script src="./js/app.js"></script>
+    <script src="./js/appCarrito.js"></script>
 </body>
 </html>
