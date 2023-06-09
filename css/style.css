@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
 
 :root {
-    --clr-main: #4b33a8;
-    --clr-main-light: #785ce9;
+    --clr-main: #35989f;
+    --clr-main-light: #000000;
     --clr-white: #ececec;
     --clr-gray: #e2e2e2;
     --clr-red: #961818;
@@ -28,6 +28,7 @@ a {
     text-decoration: none;
 }
 
+/* estilos de index.html */
 .wrapper {
     display: grid;
     grid-template-columns: 1fr 4fr;
@@ -187,7 +188,7 @@ main {
 }
 
 
-/** CARRITO **/
+/* estilos de carrito.html */
 
 .contenedor-carrito {
     display: flex;
@@ -286,20 +287,18 @@ main {
     display: none;
 }
 
-/*** MEDIA QUERIES ***/
+/*** MEDIA QUERIES SIMPLE ***/
 
 @media screen and (max-width: 850px) {
     .contenedor-productos {
         grid-template-columns: 1fr 1fr 1fr;
     }
 }
-
 @media screen and (max-width: 675px) {
     .contenedor-productos {
         grid-template-columns: 1fr 1fr;
     }
 }
-
 @media screen and (max-width: 600px) {
 
     .wrapper {
@@ -382,11 +381,7 @@ main {
         flex-wrap: wrap;
         row-gap: 1rem;
     }
-    
-
 }
-
-
 
 @media screen and (max-width: 400px) {
     .contenedor-productos {
